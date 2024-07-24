@@ -8,6 +8,7 @@ import { Button } from "../../components/Button";
 import { useState } from "react";
 import { api } from "../../services/api";
 import { useNavigate } from "react-router-dom";
+import { ButtonText } from "../../components/ButtonText";
 
 export function New() {
   const [links, setLinks] = useState([]);
@@ -35,6 +36,9 @@ export function New() {
   function handleRemoveTag(deleted) {
     setTags((prevState) => prevState.filter((tag) => tag !== deleted));
   }
+  function handleBack() {
+    navigate(-1);
+  }
 
   async function handleNewNote() {
     if (!title) {
@@ -59,7 +63,7 @@ export function New() {
       links,
     });
     alert("Nota criada com sucesso");
-    navigate("/");
+    navigate(-1);
   }
 
   return (
@@ -70,7 +74,8 @@ export function New() {
         <Form>
           <header>
             <h1>Criar nota</h1>
-            <a href="/">voltar</a>
+
+            <ButtonText title="voltar" onClick={handleBack} />
           </header>
 
           <Input
