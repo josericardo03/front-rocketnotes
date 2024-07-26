@@ -29,7 +29,7 @@ export function Details() {
     async function fetchNotes() {
       try {
         const response = await api.get(`/notes/${params.id}`);
-        setData(response.data); // Ajuste para acessar notesWithTags
+        setData(response.data.notesWithTags); // Ajuste para acessar notesWithTags
       } catch (error) {
         console.error("Error fetching notes:", error);
         setData([]); // ou outro tratamento de erro que seja apropriado para sua aplicação
