@@ -3,6 +3,7 @@ import { Container, Profile, Logout } from "./styles";
 import { useAuth } from "../../hooks/auth";
 import { api } from "../../services/api";
 import { useNavigate } from "react-router-dom";
+import avatarPlaceholder from "../../assets/avatar_placeholder.svg";
 
 export function Header() {
   const { signOut, user } = useAuth();
